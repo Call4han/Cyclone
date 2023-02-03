@@ -7,26 +7,27 @@ import org.jetbrains.annotations.Nls
 import javax.swing.JComponent
 
 class TitleConfiguration : Configurable {
-    private lateinit var settingsComponent: SettingsComponent
+    private var settingsComponent: SettingsComponent? = null
+
     @Nls(capitalization = Nls.Capitalization.Title)
     override fun getDisplayName(): String {
         return "Simple Title Format"
     }
     override fun getPreferredFocusedComponent(): JComponent {
-        return settingsComponent.getPreferredFocusedComponent()
+        return settingsComponent!!.getPreferredFocusedComponent()
     }
     override fun createComponent(): JComponent {
         settingsComponent = SettingsComponent()
-        return settingsComponent.getPanel()
+        return settingsComponent!!.getPanel()
     }
     override fun isModified(): Boolean {
         val state = TitleSettingsState.getInstance()
-        return !settingsComponent.getProjectFormat().equals(state.projectFormat) || !settingsComponent.getFileFormat().equals(state.fileFormat)
+        return !settingsComponent!!.getProjectFormat().equals(state.projectFormat) || !settingsComponent!!.getFileFormat().equals(state.fileFormat)
     }
 
     override fun apply() {
-        TitleSettingsState.getInstance().fileFormat = settingsComponent.getFileFormat()
-        TitleSettingsState.getInstance().projectFormat = settingsComponent.getProjectFormat()
+        TitleSettingsState.getInstance().fileFormat = settingsComponent!!.getFileFormat()
+        TitleSettingsState.getInstance().projectFormat = settingsComponent!!.getProjectFormat()
         triggerTitleRefresh()
     }
 
@@ -41,10 +42,10 @@ class TitleConfiguration : Configurable {
     }
     override fun reset() {
         val state = TitleSettingsState.getInstance()
-        settingsComponent.setProjectFormat(state.projectFormat)
-        settingsComponent.setFileFormat(state.fileFormat)
+        settingsComponent!!.setProjectFormat(state.projectFormat)
+        settingsComponent!!.setFileFormat(state.fileFormat)
     }
     override fun disposeUIResources() {
-        settingsComponent = null!!
+        settingsComponent = null
     }
 }
