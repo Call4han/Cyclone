@@ -1,7 +1,7 @@
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.7.20"
-    id("org.jetbrains.intellij") version "1.10.1"
+    id("org.jetbrains.intellij") version "1.13.0"
 }
 
 group = "me.callahandev"
@@ -9,17 +9,23 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    maven("https://plugins.gradle.org/m2/")
 }
 
-// Configure Gradle IntelliJ Plugin
-// Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
+
 intellij {
     version.set("2022.1.4")
-    type.set("IC") // Target IDE Platform
 
     plugins.set(listOf(/* Plugin Dependencies */))
 }
-
+sourceSets {
+    main {
+        java {
+            srcDirs("src/main/kotlin")
+            resources.srcDirs("src/main/resources")
+        }
+    }
+}
 tasks {
     // Set the JVM compatibility versions
     withType<JavaCompile> {
@@ -31,8 +37,8 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("221")
-        untilBuild.set("231.*")
+        sinceBuild.set("193.0")
+        untilBuild.set("223.*")
     }
 
     signPlugin {
@@ -44,4 +50,10 @@ tasks {
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
+}
+tasks.processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+tasks.buildSearchableOptions {
+    maxHeapSize = "3048m"
 }
