@@ -1,15 +1,13 @@
 package me.callahandev.cyclone.ui
 
 import com.intellij.ide.ui.LafManager
+import com.intellij.ide.ui.LafManagerListener
 import com.intellij.openapi.application.ApplicationManager
-import com.intellij.openapi.components.BaseComponent
 import javax.swing.UIManager
 
-class ProgressBarListener : BaseComponent {
+class ProgressBarListener : LafManagerListener {
     init {
-        LafManager.getInstance().addLafManagerListener {
-            updateProgressBarUi()
-        }
+        updateProgressBarUi()
     }
 
     companion object {
@@ -18,15 +16,14 @@ class ProgressBarListener : BaseComponent {
         }
     }
 
-    override fun initComponent() {
-        updateProgressBarUi()
-    }
 
     private fun updateProgressBarUi() {
         UIManager.put("ProgressBarUI", CycloneHandler::class.java.name)
         UIManager.getDefaults()[CycloneHandler::class.java.name] = CycloneHandler::class.java
     }
+    override fun lookAndFeelChanged(source: LafManager) {
+        updateProgressBarUi()
+    }
 
 
-    override fun getComponentName(): String = "DuckLafUpdater"
 }
