@@ -1,4 +1,4 @@
-package me.callahandev.cyclone.ui
+package team.devblook.cyclone.ui
 
 import javax.swing.JComponent
 import javax.swing.plaf.basic.BasicProgressBarUI

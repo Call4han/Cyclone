@@ -1,11 +1,8 @@
-package me.callahandev.cyclone.settings
+package team.devblook.cyclone.settings
 
-import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.options.Configurable
-import com.intellij.openapi.options.SearchableConfigurable
 import org.jetbrains.annotations.Nls
 import javax.swing.JComponent
-import javax.swing.JToggleButton
 
 class SettingsConfigurableExample : Configurable {
     private lateinit var settingsComponent: SettingsComponent
@@ -29,7 +26,6 @@ class SettingsConfigurableExample : Configurable {
         println(settings.user + "apply")
 
     }
-
 
 
     override fun reset() {

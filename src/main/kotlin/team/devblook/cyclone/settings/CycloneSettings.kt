@@ -1,4 +1,4 @@
-package me.callahandev.cyclone.settings
+package team.devblook.cyclone.settings
 
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.options.Configurable

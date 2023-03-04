@@ -1,4 +1,4 @@
-package me.callahandev.cyclone
+package team.devblook.cyclone
 
 import com.intellij.util.ui.JBUI
 import javax.swing.ImageIcon

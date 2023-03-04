@@ -1,4 +1,4 @@
-package me.callahandev.cyclone.ui
+package team.devblook.cyclone.ui
 
 import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.LafManagerListener
@@ -21,6 +21,7 @@ class ProgressBarListener : LafManagerListener {
         UIManager.put("ProgressBarUI", CycloneHandler::class.java.name)
         UIManager.getDefaults()[CycloneHandler::class.java.name] = CycloneHandler::class.java
     }
+
     override fun lookAndFeelChanged(source: LafManager) {
         updateProgressBarUi()
     }

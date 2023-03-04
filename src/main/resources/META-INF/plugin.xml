@@ -1,4 +1,3 @@
-
 <idea-plugin>
     <id>me.callahandev.Cyclone</id>
     <name>Cyclone</name>
@@ -13,14 +12,14 @@
         <applicationConfigurable
                 parentId="editor"
                 displayName="Example"
-                instance="me.callahandev.cyclone.settings.SettingsConfigurableExample"
-                id="me.callahandev.cyclone.settings.SettingsConfigurableExample"/>
-        <applicationService serviceImplementation="me.callahandev.cyclone.settings.ConfigurableState"/>
+                instance="team.devblook.cyclone.settings.SettingsConfigurableExample"
+                id="team.devblook.cyclone.settings.SettingsConfigurableExample"/>
+        <applicationService serviceImplementation="team.devblook.cyclone.settings.ConfigurableState"/>
     </extensions>
 
     <application-components>
         <component>
-            <implementation-class>me.callahandev.cyclone.ui.ProgressBarListener</implementation-class>
+            <implementation-class>team.devblook.cyclone.ui.ProgressBarListener</implementation-class>
         </component>
     </application-components>
 </idea-plugin>

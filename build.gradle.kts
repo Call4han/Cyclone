@@ -4,9 +4,6 @@ plugins {
     id("org.jetbrains.intellij") version "1.13.0"
 }
 
-group = "me.callahandev"
-version = "1.0-SNAPSHOT"
-
 repositories {
     mavenCentral()
     maven("https://plugins.gradle.org/m2/")
@@ -34,6 +31,11 @@ tasks {
     }
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions.jvmTarget = "11"
+    }
+    intellij {
+        jar {
+            archiveFileName.set("Cyclone-${project.version}-BETA.jar")
+        }
     }
 
     patchPluginXml {
