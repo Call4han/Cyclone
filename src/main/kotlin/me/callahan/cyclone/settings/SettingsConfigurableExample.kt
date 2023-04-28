@@ -1,6 +1,8 @@
-package team.devblook.cyclone.settings
+package me.callahan.cyclone.settings
 
 import com.intellij.openapi.options.Configurable
+import me.callahan.cyclone.settings.ConfigurableState
+import me.callahan.cyclone.settings.SettingsComponent
 import org.jetbrains.annotations.Nls
 import javax.swing.JComponent
 

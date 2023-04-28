@@ -1,8 +1,8 @@
-package team.devblook.cyclone.ui
+package me.callahan.cyclone.ui
 
 import com.intellij.util.ui.JBUI
-import team.devblook.cyclone.CYCLONE_WIDTH
-import team.devblook.cyclone.DuckIcon
+import me.callahan.cyclone.icons.CYCLONE_WIDTH
+import me.callahan.cyclone.icons.DuckIcon
 import java.awt.Dimension
 import java.awt.Graphics
 import java.awt.Graphics2D

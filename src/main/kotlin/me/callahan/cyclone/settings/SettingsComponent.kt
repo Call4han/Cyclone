@@ -1,4 +1,4 @@
-package team.devblook.cyclone.settings
+package me.callahan.cyclone.settings
 
 import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.components.JBLabel

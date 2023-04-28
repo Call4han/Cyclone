@@ -1,17 +1,16 @@
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.7.20"
-    id("org.jetbrains.intellij") version "1.13.0"
+    id("org.jetbrains.kotlin.jvm") version "1.8.21"
+    id("org.jetbrains.intellij") version "1.13.3"
 }
 
 repositories {
     mavenCentral()
-    maven("https://plugins.gradle.org/m2/")
 }
 
 
 intellij {
-    version.set("2022.1.4")
+    version.set("2023.1")
 
     plugins.set(listOf(/* Plugin Dependencies */))
 }
@@ -25,22 +24,18 @@ sourceSets {
 }
 tasks {
     // Set the JVM compatibility versions
-    withType<JavaCompile> {
-        sourceCompatibility = "11"
-        targetCompatibility = "11"
-    }
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "11"
+    kotlin {
+        jvmToolchain(17)
     }
     intellij {
         jar {
-            archiveFileName.set("Cyclone-${project.version}-BETA.jar")
+            archiveFileName.set("Cyclone-${rootProject.version}-BETA.jar")
         }
     }
 
     patchPluginXml {
         sinceBuild.set("193.0")
-        untilBuild.set("223.*")
+        untilBuild.set("231.*")
     }
 
     signPlugin {
@@ -52,10 +47,4 @@ tasks {
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
-}
-tasks.processResources {
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE
-}
-tasks.buildSearchableOptions {
-    maxHeapSize = "3048m"
 }

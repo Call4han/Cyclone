@@ -1,8 +1,8 @@
 <idea-plugin>
-    <id>me.callahandev.Cyclone</id>
+    <id>me.callahan.cyclone</id>
     <name>Cyclone</name>
     <version>1.0.0</version>
-    <vendor email="ccasarider@gmail.com" url="">devblook</vendor>
+    <vendor email="ccasarider@gmail.com" url="">call4han</vendor>
     <description><![CDATA[
       This is a progress bar plugin that you can put images and gifs to your liking!.
     ]]></description>
@@ -12,14 +12,14 @@
         <applicationConfigurable
                 parentId="editor"
                 displayName="Example"
-                instance="team.devblook.cyclone.settings.SettingsConfigurableExample"
-                id="team.devblook.cyclone.settings.SettingsConfigurableExample"/>
-        <applicationService serviceImplementation="team.devblook.cyclone.settings.ConfigurableState"/>
+                instance="me.callahan.cyclone.settings.SettingsConfigurableExample"
+                id="me.callahan.cyclone.settings.SettingsConfigurableExample"/>
+        <applicationService serviceImplementation="me.callahan.cyclone.settings.ConfigurableState"/>
     </extensions>
 
     <application-components>
         <component>
-            <implementation-class>team.devblook.cyclone.ui.ProgressBarListener</implementation-class>
+            <implementation-class>me.callahan.cyclone.ui.ProgressBarListener</implementation-class>
         </component>
     </application-components>
 </idea-plugin>

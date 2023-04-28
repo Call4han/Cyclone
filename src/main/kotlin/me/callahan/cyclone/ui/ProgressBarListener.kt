@@ -1,4 +1,4 @@
-package team.devblook.cyclone.ui
+package me.callahan.cyclone.ui
 
 import com.intellij.ide.ui.LafManager
 import com.intellij.ide.ui.LafManagerListener
