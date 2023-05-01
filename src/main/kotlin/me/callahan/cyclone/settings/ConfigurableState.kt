@@ -11,8 +11,8 @@ import com.intellij.util.xmlb.XmlSerializerUtil
     storages = [Storage("Cyclone.xml")]
 )
 class ConfigurableState : PersistentStateComponent<ConfigurableState> {
-    var user = "Wilder Development"
-    var ideaStatus = false
+    var imagePath: String? = null
+    var imagePathBack: String? = null
     override fun getState(): ConfigurableState {
         return this
     }

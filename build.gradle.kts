@@ -23,7 +23,6 @@ sourceSets {
     }
 }
 tasks {
-    // Set the JVM compatibility versions
     kotlin {
         jvmToolchain(17)
     }
@@ -34,17 +33,20 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("193.0")
-        untilBuild.set("231.*")
+        sinceBuild.set("231.0")
     }
 
     signPlugin {
-        certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
-        privateKey.set(System.getenv("PRIVATE_KEY"))
-        password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
+        password.set(System.getenv("CERTIFICATE_PASSWORD"))
     }
 
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
+}
+tasks.processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+tasks.buildSearchableOptions {
+    maxHeapSize = "3048m"
 }

@@ -2,21 +2,48 @@
     <id>me.callahan.cyclone</id>
     <name>Cyclone</name>
     <version>1.0.0</version>
-    <vendor email="ccasarider@gmail.com" url="">call4han</vendor>
-    <description><![CDATA[
-      This is a progress bar plugin that you can put images and gifs to your liking!.
-    ]]></description>
+    <vendor email="ccasarider@gmail.com" url="https://github.com/Call4han/Cyclone">Call4han</vendor>
+    <description>
+        <![CDATA[
+    The Cyclone plugin for IntelliJ allows you to customize the progress bar during project indexing to your liking with Cyclone!.
+    <p><strong>Important:</strong> It is recommended to avoid having other plugins that change the progress bar in order to prevent conflicts.</p>
+
+    <h2>Features:</h2>
+    <ul>
+      <li>You can customize both the forward and backward progress bar.</li>
+      <li>You can change the progress bar using popular image formats such as .gif, .png, .jpg, and .jpeg.</li>
+      <li>You can see which image you have selected, on the current front or back image.</li>
+      <li>Cyclone brings 2 images by default.</li>
+      <li>To ensure a better appearance of the progress bar, the image size should be 32x32 or smaller.</li>
+    </ul>
+
+    <h2>How to use:</h2>
+    <ul>
+      <li>Go to File > Settings > Editor > Cyclone </li>
+      <li>Click on the "Select Front Image" button to select the image you want to use for the forward progress bar.</li>
+      <li>Click on the "Select Back Image" button to select the image you want to use for the backward progress bar.</li>
+      <li>Click on the "Apply" button.</li>
+      <li>Click on the "OK" button.</li>
+      <li>Restart and Enjoy!</li>
+    </ul>
+
+    <h2>Bug or Suggestions:</h2>
+    <ul>
+      <li>You can report a bug by creating an issue on the <a href="https://github.com/Call4han/Cyclone/issues">repository</a>.</li>
+      <li>You can suggest a feature by creating an issue on the <a href="https://github.com/Call4han/Cyclone/issues">repository</a>.</li>
+  </ul>
+  ]]>
+    </description>
+
     <depends>com.intellij.modules.platform</depends>
     <extensions defaultExtensionNs="com.intellij">
-
         <applicationConfigurable
                 parentId="editor"
-                displayName="Example"
-                instance="me.callahan.cyclone.settings.SettingsConfigurableExample"
+                displayName="Cyclone"
+                instance="me.callahan.cyclone.settings.SettingsComponent"
                 id="me.callahan.cyclone.settings.SettingsConfigurableExample"/>
         <applicationService serviceImplementation="me.callahan.cyclone.settings.ConfigurableState"/>
     </extensions>
-
     <application-components>
         <component>
             <implementation-class>me.callahan.cyclone.ui.ProgressBarListener</implementation-class>
