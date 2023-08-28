@@ -10,7 +10,7 @@ repositories {
 
 
 intellij {
-    version.set("2023.1")
+    version.set("2023.2")
 
     plugins.set(listOf(/* Plugin Dependencies */))
 }
