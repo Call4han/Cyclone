@@ -1,7 +1,7 @@
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.8.21"
-    id("org.jetbrains.intellij") version "1.13.3"
+    id("org.jetbrains.intellij") version "1.17.4"
 }
 
 repositories {
@@ -10,7 +10,7 @@ repositories {
 
 
 intellij {
-    version.set("2024.1")
+    version.set("2024.2.0.2")
 
     plugins.set(listOf(/* Plugin Dependencies */))
 }
