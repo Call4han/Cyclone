@@ -10,13 +10,6 @@ class ProgressBarListener : LafManagerListener {
         updateProgressBarUi()
     }
 
-    companion object {
-        fun getInstance(): ProgressBarListener {
-            return ApplicationManager.getApplication().getComponent(ProgressBarListener::class.java)
-        }
-    }
-
-
     private fun updateProgressBarUi() {
         UIManager.put("ProgressBarUI", CycloneHandler::class.java.name)
         UIManager.getDefaults()[CycloneHandler::class.java.name] = CycloneHandler::class.java

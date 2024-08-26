@@ -29,7 +29,7 @@ class CycloneProgressBarUi : BasicProgressBarUI() {
     }
 
     private fun drawIcon(g2d: Graphics2D, c: JComponent) {
-        val scaledIcon = if (velocity > 0) Icons.RUN else Icons.BACK
+        val scaledIcon = if (velocity > 0) Icons.runIcon() else Icons.backIcon()
         scaledIcon.paintIcon(c, g2d, painter, -JBUI.scale(2))
     }
 
