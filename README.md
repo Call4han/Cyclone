@@ -1,1 +1,2 @@
-<iframe width="384px" height="319px" src="https://plugins.jetbrains.com/embeddable/card/21631"></iframe>
+# Cyclone
+[Plugin URL](https://plugins.jetbrains.com/plugin/21631-cyclone)
