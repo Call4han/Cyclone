@@ -1,30 +1,31 @@
 <idea-plugin>
     <id>me.callahan.cyclone</id>
     <name>Cyclone</name>
-    <version>3.0.0</version>
+    <version>4.0.0</version>
     <vendor email="ccasarider@gmail.com" url="https://github.com/Call4han/Cyclone">Call4han</vendor>
     <description>
         <![CDATA[
     The Cyclone plugin for IntelliJ allows you to customize the progress bar during project indexing to your liking with Cyclone!.
     <p><strong>Important:</strong> It is recommended to avoid having other plugins that change the progress bar in order to prevent conflicts.</p>
-
+    
     <h2>Features:</h2>
     <ul>
-      <li>You can customize both the forward and backward progress bar.</li>
+      <li>You can customize both the forward and backward progress bar images.</li>
       <li>You can change the progress bar using popular image formats such as .gif, .png, .jpg, and .jpeg.</li>
-      <li>You can see which image you have selected, on the current front or back image.</li>
-      <li>Cyclone brings 2 images by default.</li>
+      <li>You can see which image you have selected, on the current forward or backward image preview.</li>
+      <li>Cyclone brings 2 default images ready to use.</li>
+      <li>Reset buttons to quickly return to default cyclone images.</li>
       <li>To ensure a better appearance of the progress bar, the image size should be 32x32 or smaller.</li>
     </ul>
 
     <h2>How to use:</h2>
     <ul>
       <li>Go to File > Settings > Editor > Cyclone </li>
-      <li>Click on the "Select Front Image" button to select the image you want to use for the forward progress bar.</li>
-      <li>Click on the "Select Back Image" button to select the image you want to use for the backward progress bar.</li>
-      <li>Click on the "Apply" button.</li>
-      <li>Click on the "OK" button.</li>
-      <li>Restart and Enjoy!</li>
+      <li>Click "Browse..." next to "Forward Image" to select the image for rightward progress movement.</li>
+      <li>Click "Browse..." next to "Backward Image" to select the image for leftward progress movement.</li>
+      <li>Use "Reset to Default" buttons to restore original cyclone images.</li>
+      <li>Click "Apply" button to save changes.</li>
+      <li>Click "OK" button - changes apply instantly!</li>
     </ul>
 
     <h2>Bug or Suggestions:</h2>
@@ -34,7 +35,7 @@
   </ul>
   ]]>
     </description>
-    <idea-version since-build="231"/>
+    <idea-version since-build="251"/>
     <depends>com.intellij.modules.platform</depends>
     <extensions defaultExtensionNs="com.intellij">
         <applicationConfigurable
@@ -43,10 +44,6 @@
                 instance="me.callahan.cyclone.settings.SettingsComponent"
                 id="me.callahan.cyclone.settings.SettingsConfigurableExample"/>
         <applicationService serviceImplementation="me.callahan.cyclone.settings.ConfigurableState"/>
+        <postStartupActivity implementation="me.callahan.cyclone.ui.ProgressBarStartupActivity"/>
     </extensions>
-    <application-components>
-        <component>
-            <implementation-class>me.callahan.cyclone.ui.ProgressBarListener</implementation-class>
-        </component>
-    </application-components>
 </idea-plugin>
