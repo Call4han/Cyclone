@@ -8,7 +8,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 
 @State(
     name = "Settings-Cyclone",
-    storages = [Storage("Cyclone.xml")]
+    storages = [Storage("cyclone.xml")]
 )
 class ConfigurableState : PersistentStateComponent<ConfigurableState> {
     var imagePath: String? = null

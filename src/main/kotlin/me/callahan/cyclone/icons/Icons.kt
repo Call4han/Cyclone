@@ -14,18 +14,49 @@ class Icons {
 
         fun runIcon(): ImageIcon {
             if (runIcon == null) {
-                runIcon = ConfigurableState.getInstance().imagePath?.let { ImageIcon(it) }
-                    ?: ImageIcon(Icons::class.java.getResource("/front-cyclone.gif"))
+                runIcon = loadForwardIcon()
             }
             return runIcon!!
         }
 
         fun backIcon(): ImageIcon {
             if (backIcon == null) {
-                backIcon = ConfigurableState.getInstance().imagePathBack?.let { ImageIcon(it) }
-                    ?: ImageIcon(Icons::class.java.getResource("/back-cyclone.gif"))
+                backIcon = loadBackwardIcon()
             }
             return backIcon!!
+        }
+    
+        private fun loadForwardIcon(): ImageIcon {
+            return ConfigurableState.getInstance().imagePath?.let { 
+                try {
+                    ImageIcon(it)
+                } catch (e: Exception) {
+                    getDefaultForward()
+                }
+            } ?: getDefaultForward()
+        }
+
+        private fun loadBackwardIcon(): ImageIcon {
+            return ConfigurableState.getInstance().imagePathBack?.let { 
+                try {
+                    ImageIcon(it)
+                } catch (e: Exception) {
+                    getDefaultBackward()
+                }
+            } ?: getDefaultBackward()
+        }
+        //getDefaultForward
+        private fun getDefaultForward(): ImageIcon {
+            return ImageIcon(Icons::class.java.getResource("/forward-cyclone.gif")!!)
+        }
+        //getDefaultBackward
+        private fun getDefaultBackward(): ImageIcon {
+            return ImageIcon(Icons::class.java.getResource("/backward-cyclone.gif")!!)
+        }
+        
+        fun resetIcons() {
+            runIcon = null
+            backIcon = null
         }
     }
 }
