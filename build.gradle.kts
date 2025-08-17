@@ -1,19 +1,32 @@
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.8.21"
-    id("org.jetbrains.intellij") version "1.17.4"
+    id("org.jetbrains.kotlin.jvm") version "2.1.0"
+    id("org.jetbrains.intellij.platform") version "2.7.2"
 }
 
 repositories {
     mavenCentral()
+    
+    intellijPlatform {
+        defaultRepositories()
+    }
 }
 
-
-intellij {
-    version.set("2024.2.0.2")
-
-    plugins.set(listOf(/* Plugin Dependencies */))
+dependencies {
+    intellijPlatform {
+        create("IC", "2025.2")
+    }
 }
+
+intellijPlatform {
+    pluginConfiguration {
+        name = "${rootProject.name}"
+        version = "${rootProject.version}"
+    }
+    
+    sandboxContainer = layout.buildDirectory.dir("idea-sandbox")
+}
+
 sourceSets {
     main {
         java {
@@ -22,18 +35,18 @@ sourceSets {
         }
     }
 }
+
 tasks {
     kotlin {
-        jvmToolchain(17)
+        jvmToolchain(21)
     }
-    intellij {
-        jar {
-            archiveFileName.set("Cyclone-${rootProject.version}-BETA.jar")
-        }
+    
+    jar {
+        archiveFileName.set("${rootProject.name}-${project.version}.jar")
     }
 
     patchPluginXml {
-        sinceBuild.set("231.0")
+        sinceBuild.set("251.0")
     }
 
     signPlugin {
@@ -44,9 +57,11 @@ tasks {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
 }
+
 tasks.processResources {
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
+
 tasks.buildSearchableOptions {
     maxHeapSize = "3048m"
 }
